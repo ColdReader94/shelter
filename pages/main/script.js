@@ -41,7 +41,7 @@ function mobileMenuOpen() {
 document.body.addEventListener('click', close);
 
 function close(e) {
-    if(e.target !== e.target.closest('.list__link') && e.target !== hamburgerbutton && e.target !== e.target.closest('.hamburger span') && e.target !== e.target.closest('.logo')) {
+    if(e.target !== e.target.closest('.list__link') && e.target !== hamburgerbutton && e.target !== e.target.closest('.hamburger span') && e.target !== e.target.closest('.logo')) && !e.target.closest('.popup')) {
         mobileMenu.classList.remove("slide-in");
         hamburgerbutton.classList.remove("rotate");
         hamburgerbutton.classList.remove("fixed");
