@@ -19,7 +19,6 @@ let closeButton = document.querySelector('.close-button');
 hamburgerbutton.addEventListener('click', hamburgerSwitch);
 hamburgerbutton.addEventListener('click', mobileMenuOpen);
 
-
 function hamburgerSwitch(e) {
     console.log(e.target);
     if(e.target == e.target.closest('.hamburger') || e.target == e.target.closest('span')) {
@@ -42,7 +41,7 @@ function mobileMenuOpen() {
 document.body.addEventListener('click', close);
 
 function close(e) {
-    if(e.target !== e.target.closest('.list__link') && e.target !== hamburgerbutton && e.target !== e.target.closest('.hamburger span') && e.target !== e.target.closest('.logo') && !e.target.closest('.popup')) {
+    if(e.target !== e.target.closest('.list__link') && e.target !== hamburgerbutton && e.target !== e.target.closest('.hamburger span') && e.target !== e.target.closest('.logo')) {
         mobileMenu.classList.remove("slide-in");
         hamburgerbutton.classList.remove("rotate");
         hamburgerbutton.classList.remove("fixed");
@@ -124,6 +123,9 @@ function randIntExcep(min, max, exp) {
 
 // Popup
 // Навешиваем обработчик на каждый из элементов слайдера
+for(let value of carouselItem) {
+    value.addEventListener('click', openPopup);
+}
 
 let popup = document.querySelector('.popup-container')
 
@@ -164,12 +166,11 @@ async function openPopup(event) {
     } else {
         alert("Ошибка загрузки данных из json: " + jsonObj.status);
         return;
-      }
+    }
 
         //Отображаем popup и вставляем затемнение
           popup.classList.add('popup-container-active');  
             document.body.prepend(overlay);
-            return;
         }
     }
 }
@@ -179,13 +180,10 @@ overlay.addEventListener('click', closePopup);
 closeButton.addEventListener('click', closePopup);
 document.querySelector('.popup-container').addEventListener('click', closePopup);
 
-function closePopup(e) {
-  console.log(e.target)
-  if(!e.target.closest('.popup') && (e.target == overlay || e.target == closeButton || e.target == document.querySelector('.popup-container'))) {
+function closePopup() {
     //Скрываем popup и удаляем затемнение
     overlay.remove();
-    popup.classList.remove('popup-container-active');
-  }
+    popup.classList.remove('popup-container-active');  
 }
     
 //Запрет прокрутки
@@ -206,6 +204,3 @@ window.addEventListener('wheel', function(e) {
     e.preventDefault();
 }
  }, { passive: false })
-
-
- 
