@@ -89,32 +89,32 @@ async function generateSlides() {
     }
 
     let exc = [];
-        for(let value of carouselItem) {
-            
-            value.img = value.querySelector('img');
-            value.name = value.querySelector('.carousel-item__name');
-
-            let randomValue = randIntExcep(0, 4, exc);
-            exc.push(randomValue);
-            value.img.src = tempArr[randomValue].img;
-            value.name.innerHTML = tempArr[randomValue].name;            
-      }
-       for(value of carouselItem) {
-           value.style.animation = "box 1.5s ease-in-out";
-       }
     
+for(let value of carouselItem) {
+    value.img = value.querySelector('img');
+    value.name = value.querySelector('.carousel-item__name');
 
-       function removeanimation() {
-        for(value of carouselItem) {
-            value.style.animation = "none";
-        }
-       }
-    } 
+    let randomValue = randIntExcep(0, 4, exc);
+    
+    exc.push(randomValue);
+    value.img.src = tempArr[randomValue].img;
+    value.name.innerHTML = tempArr[randomValue].name;            
+}
+   for(value of carouselItem) {
+       value.style.animation = "box 1.5s ease-in-out";
+   }
+
+
+   function removeanimation() {
+    for(value of carouselItem) {
+        value.style.animation = "none";
+    }
+   }
+} 
 
 // Генерация рандомного числа
 function randIntExcep(min, max, exp) {
-    var n,
-        exp = Array.isArray(exp) ? exp : [(isNaN(exp) ? min-1 : exp)];
+    let n, exp = Array.isArray(exp) ? exp : [(isNaN(exp) ? min-1 : exp)];
     while(true){
         n = Math.floor(Math.random() * (max - min + 1)) + min;
         if(exp.indexOf(n) < 0) return n;
