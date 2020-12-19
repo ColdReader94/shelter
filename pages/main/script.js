@@ -114,7 +114,7 @@ for(let value of carouselItem) {
 
 // Генерация рандомного числа
 function randIntExcep(min, max, exp) {
-    let n, exp = Array.isArray(exp) ? exp : [(isNaN(exp) ? min-1 : exp)];
+    var n, exp = Array.isArray(exp) ? exp : [(isNaN(exp) ? min-1 : exp)];
     while(true){
         n = Math.floor(Math.random() * (max - min + 1)) + min;
         if(exp.indexOf(n) < 0) return n;
