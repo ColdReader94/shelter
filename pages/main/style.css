@@ -1179,6 +1179,7 @@ footer a {
     line-height: 110%;
     letter-spacing: 0.06em;
     width: 50%;
+    max-height: 120px;
   }
 
   .help-section__item:not(:last-child) {
