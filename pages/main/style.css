@@ -539,6 +539,7 @@
   line-height: 115%;
   letter-spacing: 0.06em;
   color: #545454;
+  max-height: 120px;
 }
 
 .help-section__item img {
